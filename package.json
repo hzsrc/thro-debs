@@ -1,0 +1,23 @@
+{
+  "name": "thro-debs",
+  "version": "1.0.7",
+  "description": "A simple throttle & debounce tool of javascript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 1"
+  },
+  "dependencies": {
+    
+  },
+  "keywords": [
+    "throttle",
+    "debounce"
+  ],
+  "author": {
+    "name": "James.Huang",
+    "email": "hz932@qq.com",
+    "url": "http://www.hz300.com/thro-debs/"
+  },
+  "license": "MIT",
+  "readme": "readme.md"
+}
