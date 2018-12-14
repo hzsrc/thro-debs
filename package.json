@@ -1,6 +1,6 @@
 {
   "name": "thro-debs",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A simple throttle & debounce tool of javascript.",
   "main": "index.js",
   "scripts": {
