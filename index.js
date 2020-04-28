@@ -12,25 +12,26 @@ module.exports = {
 	},
 
 	//空闲控制 返回函数连续调用时，空闲时间必须大于或等于 waitMs，fn 才会执行。延迟执行
-	debounce: function (waitMs, fn) {
-		var lastCall, args, timeout;
-		return function r() {
-			lastCall = +new Date;
-			args = arguments;
-			if (!timeout) {
-				timeout = setTimeout(later, waitMs);
-			}
-		};
-
-		function later() {
-			var past = +new Date - lastCall;
-			if (past > waitMs) {
-				timeout = null;
-				fn.apply(null, args)
-			}
-			else {
-				timeout = setTimeout(later, waitMs - past + 1)
-			}
-		}
-	}
+        function debounce(waitMs, fn) {
+            var lastCall, that, args, timeout;
+            return function r() {
+                lastCall = +new Date;
+                that = this
+                args = arguments;
+                // 避免每次都重新setTimeout
+                if (!timeout) {
+                    timeout = setTimeout(later, waitMs);
+                }
+            };
+            function later() {
+                var past = +new Date - lastCall;
+                if (past > waitMs) {
+                    timeout = 0;
+                    fn.apply(that, args)
+                }
+                else {
+                    timeout = setTimeout(later, waitMs - past + 1)
+                }
+            }
+        }
 };
